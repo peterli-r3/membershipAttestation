@@ -11,7 +11,7 @@ class QueryAllMembers : FlowLogic<String>(){
     @Suspendable
     override fun call(): String {
         val membershipRequests = serviceHub.vaultService.queryBy(contractStateType = MembershipState::class.java).states
-        return "\nQuery Found the following pending membership requests:" +
+        return "\nQuery Found the following memberships:" +
                 membershipRequests.map { "\n- [" +
                         it.state.data.identity.cordaIdentity.name.organisation +
                         "] with membershipId: " + it.state.data.linearId +
